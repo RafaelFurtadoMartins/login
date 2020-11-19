@@ -1,12 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { GlobalService } from './global.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ApiService {
-  logar(arg0: { email: string; password: string; }) {
-    throw new Error('Method not implemented.');
+
+  constructor(public http: HttpClient, public globalService: GlobalService) { 
+
   }
 
-  constructor() { }
+
+  logar(cmd) {
+    return this.http.post<any>(`${this.globalService.apiUrl}/account/login`, cmd);
+  }
+
+  cadastro(cadastro) {
+    return this.http.post<any>(`${this.globalService.apiUrl}/account/register`, cadastro);
+  }
+
 }

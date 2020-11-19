@@ -5,5 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class GlobalService {
 
+  public apiUrl = 'https://apiv2.dotneterp.com.br/api/v1';
+
   constructor() { }
+
+
+
 }
+
+
+
