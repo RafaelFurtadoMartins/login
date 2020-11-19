@@ -1,18 +1,27 @@
-<ion-header>
-    <ion-navbar>
-        <ion-title>Login</ion-title>
+<div class="content">
+    <!--FORMULÁRIO DE LOGIN-->
+    <div id="login">
+        <form method="post" action="">
+            <h1>Login</h1>
+            <p>
+                <label for="nome_login">Seu nome</label>
+                <input id="nome_login" name="nome_login" required="required" type="text" placeholder="" />
+            </p>
 
-        <ion-label fixed>E-mail</ion-label>
-        <ion-input type="text" [(ngModel)]="email"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label fixed>Senha</ion-label>
-            <ion-input type="password" [(ngModel)]="senha"></ion-input>
-        </ion-item>
-        </ion-list>
-        <div padding>
-            <button ion-button *ngIf="!autenticacao" (click)="cadastrar()">Cadastrar</button>
-            <button ion-button *ngIf="!autenticacao" (click)="login()"> Login</button>
-            <button ion-button *ngIf="autenticacao" (click)="logout()"> Logout</button>
-        </div>
-        </ion-content>
+            <p>
+                <label for="email_login">Seu e-mail</label>
+                <input id="email_login" name="email_login" required="required" type="password" placeholder="" />
+            </p>
+
+
+
+            <p>
+                <input type="submit" value="Login" />
+            </p>
+
+            <p class="link">
+                Ainda não tem conta?
+                <a href="cadastro">Cadastre-se</a>
+            </p>
+        </form>
+    </div>

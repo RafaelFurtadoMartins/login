@@ -14,6 +14,13 @@ const routes: Routes = [
     }
   },
   {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      title: 'Login'
+    },
+  },
+  {
     path: 'cadastro',
     component: CadastroComponent,
     data: {
