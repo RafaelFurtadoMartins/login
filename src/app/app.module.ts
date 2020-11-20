@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { ApiService } from './api.service';
+import { ApiService } from 'src/service/api.service';
 
 @NgModule({
   declarations: [

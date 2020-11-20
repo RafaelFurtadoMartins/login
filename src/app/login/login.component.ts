@@ -2,8 +2,8 @@ import { HomePageComponent } from './../home-page/home-page.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/service/authentication.service';
-import { ApiService } from '../api.service';
-import { GlobalService } from '../global.service';
+import { ApiService } from '../../service/api.service';
+import { GlobalService } from '../../service/global.service';
 import { Token } from '@angular/compiler';
 
 @Component({
