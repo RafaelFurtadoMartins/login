@@ -1,10 +1,9 @@
 import { HomePageComponent } from './../home-page/home-page.component';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/service/authentication.service';
 import { ApiService } from '../../service/api.service';
 import { GlobalService } from '../../service/global.service';
 import { Token } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,43 +15,29 @@ export class LoginComponent {
   senha: string;
   errorLogin: any;
   loginData: any;
-  constructor(private apiService: ApiService, public globalService: GlobalService) { }
+  authService: any;
+  constructor(private apiService: ApiService, public globalService: GlobalService, private router: Router) { }
 
-  ngOnInit() {
-
-
-  }
+  ngOnInit() { }
 
   login() {
 
 
-    this.apiService
+    return this.apiService
       .logar({ email: this.usuario, password: this.senha })
-      .subscribe(retOk => {
+      .subscribe(data => {
 
-        if (retOk.success == true) {
+        this.authService.SetUsuario(data.usuario);
+        let token = data.id;
+        this.authService.setToken(token);
+        this.router.navigate(["/HomePageComponent"])
 
-          this.loginData = retOk;
-          localStorage.setItem('currentUser', JSON.stringify({ token: Token, name: this.usuario }));
-          var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        console.log('Retorno da API:', this.loginData);
 
-          console.log('Retorno da API:', this.loginData);
-
-        }
-
-      }, error => {
-
-        console.log('Erros: ', error);
-
-
-    
-      });
-
-
+      },
+          error => console.log('Erros: ', error)
+      );
+    }
   }
- 
-
-}
-
 
 
