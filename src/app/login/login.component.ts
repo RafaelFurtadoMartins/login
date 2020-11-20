@@ -30,7 +30,7 @@ export class LoginComponent {
         this.authService.SetUsuario(data.usuario);
         let token = data.id;
         this.authService.setToken(token);
-        this.router.navigate(["/HomePageComponent"])
+        this.router.navigate(["HomePageComponent"]);
 
         console.log('Retorno da API:', this.loginData);
 

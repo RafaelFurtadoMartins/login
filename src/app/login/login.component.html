@@ -3,13 +3,14 @@
     <div id="login">
         <form method="post" action="">
             <h1>Login</h1>
+
             <p>
-                <label for="email_login">Seu e-mail</label>
-                <input ngModel="usuario" type="text" placeholder="" />
+                <label for="email">Seu e-mail</label>
+                <input type="email" id="email" name="email" placeholder="email" [(ngModel)]="usuario" type="text" required />
             </p>
             <p>
-                <label for="senha_login">Sua Senha</label>
-                <input ngModel="senha" type="password" placeholder="" />
+                <label for="senha">Sua Senha</label>
+                <input type="password" id="password" name="password" placeholder="password" [(ngModel)]="senha" type="password" required />
             </p>
 
 
