@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  usuario: string ;
+  email: string;
   senha: string;
   errorLogin: any;
   loginData: any;
@@ -24,13 +24,13 @@ export class LoginComponent {
 
 
     return this.apiService
-      .logar({ email: this.usuario, password: this.senha })
+      .logar({ email: this.email, password: this.senha })
       .subscribe(data => {
 
         this.authService.SetUsuario(data.usuario);
         let token = data.id;
         this.authService.setToken(token);
-        this.router.navigate(["home-page"]);
+        this.router.navigate(["HomePageComponent"]);
 
         console.log('Retorno da API:', this.loginData);
 
