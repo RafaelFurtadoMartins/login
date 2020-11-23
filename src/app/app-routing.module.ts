@@ -3,6 +3,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from 'src/service/auth-guard.service';
 
 const routes: Routes = [
   
@@ -30,6 +31,8 @@ const routes: Routes = [
   {
     path: 'home-page',
     component: HomePageComponent,
+    canActivate: [AuthGuard],  
+
     data: {
       title: 'Home-Page'
     }

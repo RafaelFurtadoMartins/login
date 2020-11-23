@@ -1,28 +1,23 @@
 <div class="content">
     <!--FORMULÁRIO DE LOGIN-->
     <div id="login">
-        <form method="post" action="">
-            <h1>Login</h1>
+        <h1>Login</h1>
 
-            <p>
-                <label for="email">Seu e-mail</label>
-                <input type="email" id="email" name="email" placeholder="email" [(ngModel)]="usuario" type="text" required />
-            </p>
-            <p>
-                <label for="senha">Sua Senha</label>
-                <input type="password" id="password" name="password" placeholder="password" [(ngModel)]="senha" type="password" required />
-            </p>
+        <p>
+            <label for="email">E-mail</label>
+            <input matInput [(ngModel)]="usuario" type="email" id="email" name="email" placeholder="email" type="text" required />
+        </p>
+        <p>
+            <label for="senha">Senha</label>
+            <input [(ngModel)]="senha" type="password" id="password" name="password" placeholder="password" type="password" required />
+        </p>
 
+        <p>
+            <input type="submit" value="Login" />
+        </p>
 
-
-
-            <p>
-                <input type="submit" value="Login" />
-            </p>
-
-            <p class="link">
-                Ainda não tem conta?
-                <a href="cadastro">Cadastre-se</a>
-            </p>
-        </form>
+        <p class="link">
+            Ainda não tem conta?
+            <a href="cadastro">Cadastre-se</a>
+        </p>
     </div>

@@ -1,3 +1,4 @@
+import { CadastroComponent } from './../app/cadastro/cadastro.component';
 import { Injectable } from '@angular/core';  
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';  
 @Injectable({ providedIn: 'root' })  
@@ -7,7 +8,7 @@ export class AuthGuard implements CanActivate {
         if (localStorage.getItem('currentUser')) {  
             return true;  
         }  
-        this._router.navigate(['']);  
+        this._router.navigate(['cadastro']);  
         return false;  
     }  
 }  
