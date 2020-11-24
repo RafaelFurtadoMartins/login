@@ -1,9 +1,12 @@
+import { login } from './../models/loginViewModels';
+import { getTestBed } from '@angular/core/testing';
 import { HomePageComponent } from './../home-page/home-page.component';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import { GlobalService } from '../../service/global.service';
 import { Token } from '@angular/compiler';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/service/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +18,11 @@ export class LoginComponent {
   senha: string;
   errorLogin: any;
   loginData: any;
-  authService: any;
-  constructor(private apiService: ApiService, public globalService: GlobalService, private router: Router) { }
+  constructor(private apiService: ApiService,
+    public globalService: GlobalService,
+    private router: Router,
+    public authService: AuthenticationService
+  ) { }
 
   ngOnInit() { }
 
@@ -25,19 +31,28 @@ export class LoginComponent {
 
     return this.apiService
       .logar({ email: this.email, password: this.senha })
-      .subscribe(data => {
+      .subscribe(response => {
+        if (response.success == true) {
+          this.authService.login(response.data);
+          this.router.navigate(["home-page"]);
+        }
 
-        this.authService.SetUsuario(data.usuario);
-        let token = data.id;
-        this.authService.setToken(token);
-        this.router.navigate(["HomePageComponent"]);
 
         console.log('Retorno da API:', this.loginData);
 
       },
-          error => console.log('Erros: ', error)
+        error => {
+          console.log('Erros: ', error)
+          var errorMsg = '';
+          error.error.errors.forEach(msg => {
+            errorMsg += msg.value + '<br>';
+          });
+          console.log(errorMsg);
+        }
+
+
       );
-    }
   }
+}
 
 

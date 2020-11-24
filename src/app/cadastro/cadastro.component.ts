@@ -7,11 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroComponent implements OnInit {
 
+  nome: any;
+  senha: any;
+  email: any;
+  confirmarSenha: any;
+  cnpj: any;
+  nomeEmpresa: any;
+  cpf: any;
+  telefone: any;
+  registrer: any;
+  formG
   constructor() { }
 
-  ngOnInit(): void {
+  // ngOnInit(){
+  //   this.registrer = this.formG({
+  //     nome: ['', Validators.required],
+  //     email: ['', [Validators.required, Validators.email]],
+  //     cpf: [''],
+  //     cnpj: [''],
+  //     nomeEmpresa: [''],
+  //     senha: ['', Validators.required],
+  //     confirmarSenha: ['', Validators.required]
+  //   });
+
+
+  // }
+  cadastro() {
+
   }
-cadastro(){
-  
-}
 }
