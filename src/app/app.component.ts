@@ -8,11 +8,11 @@ import Swal from 'sweetalert2';
 export class AppComponent {
   title = 'login';
 
-  // ShowModal() {
-  //   Swal({
-  //     title: 'error!',
-  //     text: 'Hola mundo',
-  //     type: 'confirm'
-  //   });
-  // }
+
+  private showMessages(){
+    Swal('Bem-vindo', 'Ao meu app', 'sucess');
+  }
+  private errorMessage(){
+    Swal('ops', 'não foi possivel', 'error');
+  }
 }
