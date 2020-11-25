@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { ApiService } from 'src/service/api.service';
 import { GlobalService } from 'src/service/global.service';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/service/authentication.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -21,9 +23,15 @@ export class CadastroComponent implements OnInit {
   registrer: any;
   formG: any;
   loginData: any;
-  constructor(private apiService: ApiService, public globalService: GlobalService) { }
+  constructor(private apiService: ApiService,
+    public globalService: GlobalService,
+    public authService: AuthenticationService,
+    public router: Router,
 
-  ngOnInit(){
+    ) { }
+
+  ngOnInit() { }
+  validation() {
     this.registrer = this.formG({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -31,35 +39,41 @@ export class CadastroComponent implements OnInit {
       cnpj: [''],
       nomeEmpresa: [''],
       senha: ['', Validators.required],
-      confirmarSenha: ['', Validators.required]
+      confirmarSenha: ['', Validators.required],
+      telefone: ['']
     });
 
-
   }
+
+
+
   cadastro() {
-    this.apiService.cadastro({
-      nome: this.nome,
+    return this.apiService.cadastro({
+      name: this.nome,
       email: this.email,
       cpf: this.cpf,
-      nomeEmpresa: this.nomeEmpresa,
+      companyName: this.nomeEmpresa,
       cnpj: this.cnpj,
-      senha: this.senha,
-      confirmarSenha: this.confirmarSenha
+      password: this.senha,
+      confirmPassword: this.confirmarSenha,
+      phone: this.telefone
     })
-    .subscribe(data => {
+      .subscribe(data => {
 
-      if (data.success == true) {
-        this.loginData = data;
-      }
+        if (data.success == true) {
+          this.authService = data;
+          this.router.navigate(["login"]);
+
+        }
       },
-      error => {
+        error => {
 
-        console.log('Erros: ', error);
-
-
+          console.log('Erros: ', error);
 
 
-      }
-    );
-}
+
+
+        }
+      );
+  }
 };

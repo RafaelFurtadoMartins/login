@@ -9,6 +9,6 @@ export class AuthGuard implements CanActivate {
             return true;  
         }  
         this._router.navigate(['cadastro']);  
-        return false;  
+        return true;  
     }  
 }  
