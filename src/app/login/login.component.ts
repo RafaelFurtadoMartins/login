@@ -7,6 +7,7 @@ import { GlobalService } from '../../service/global.service';
 import { Token } from '@angular/compiler';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/service/authentication.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -52,6 +53,10 @@ export class LoginComponent {
 
 
       );
+  }
+  
+  simpleAlert(){  
+    Swal.fire('Hello Angular');  
   }
 }
 
