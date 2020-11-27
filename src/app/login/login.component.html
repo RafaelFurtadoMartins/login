@@ -6,20 +6,23 @@
 
             <p>
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="email" [(ngModel)]="email" type="text" required />
+                <input required type="email" id="email" name="email" placeholder="email" [(ngModel)]="email" type="text" required />
             </p>
             <p>
                 <label for="senha">Senha</label>
-                <input type="password" id="password" name="password" placeholder="password" [(ngModel)]="senha" type="password" required />
+                <input required type="password" id="password" name="password" placeholder="password" [(ngModel)]="senha" type="password" required />
             </p>
 
             <p>
                 <input type="submit" value="Login" (click)="login()" />
             </p>
 
-            <p class="link">
+            <p class="link ">
                 Ainda não tem conta?
-                <a href="cadastro">Cadastre-se</a>
+                <a href="cadastro ">Cadastre-se</a>
+
             </p>
         </form>
     </div>
+
+    <!-- (click)="login"() -->

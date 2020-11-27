@@ -7,6 +7,7 @@ import { GlobalService } from '../../service/global.service';
 import { Token } from '@angular/compiler';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/service/authentication.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -53,6 +54,18 @@ export class LoginComponent {
 
       );
   }
+  simpleAlert() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this imaginary file!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+      }
+    
+  
 }
 
 

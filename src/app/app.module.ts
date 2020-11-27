@@ -11,6 +11,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ApiService } from 'src/service/api.service';
 import { AuthenticationService } from 'src/service/authentication.service';
+import Swal from 'sweetalert2/*/sweetalert2.js';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,13 @@ import { AuthenticationService } from 'src/service/authentication.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    
+    
   ],
   providers: [
     ApiService,
-    AuthenticationService
+    AuthenticationService,
   ],
   bootstrap: [AppComponent]
 })

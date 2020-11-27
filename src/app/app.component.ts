@@ -9,10 +9,4 @@ export class AppComponent {
   title = 'login';
 
 
-  private showMessages(){
-    Swal('Bem-vindo', 'Ao meu app', 'sucess');
-  }
-  private errorMessage(){
-    Swal('ops', 'não foi possivel', 'error');
-  }
 }
