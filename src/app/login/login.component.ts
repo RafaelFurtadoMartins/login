@@ -41,7 +41,7 @@ export class LoginComponent {
 
         console.log('Retorno da API:', this.loginData);
 
-      },
+       },
         error => {
           console.log('Erros: ', error)
           var errorMsg = '';

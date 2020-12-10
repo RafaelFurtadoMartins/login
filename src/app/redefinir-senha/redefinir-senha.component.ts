@@ -1,3 +1,4 @@
+import { ApiService } from 'src/service/api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,12 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./redefinir-senha.component.css']
 })
 export class RedefinirSenhaComponent implements OnInit {
-
-  constructor() { }
+  email: string;
+  tokenConfirmEmail: any;
+  constructor(private apiService: ApiService,
+    ) { }
 
   ngOnInit(): void {
   }
 redefinirSenha(){
-  
+return this.apiService.redefinir({
+email: this.email
+})
+.subscribe()
+  if (this.tokenConfirmEmail == true){
+
+}
 }
 }
