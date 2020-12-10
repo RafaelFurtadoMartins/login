@@ -11,5 +11,7 @@ export class RedefinirSenhaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+redefinirSenha(){
+  
+}
 }

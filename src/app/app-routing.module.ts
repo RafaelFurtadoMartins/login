@@ -1,3 +1,4 @@
+import { RedefinirSenhaComponent } from './redefinir-senha/redefinir-senha.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { NgModule } from '@angular/core';
@@ -6,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from 'src/service/auth-guard.service';
 
 const routes: Routes = [
-  
+
   {
     path: '',
     component: LoginComponent,
@@ -31,10 +32,17 @@ const routes: Routes = [
   {
     path: 'home-page',
     component: HomePageComponent,
-    canActivate: [AuthGuard],  
+    canActivate: [AuthGuard],
 
     data: {
       title: 'Home-Page'
+    }
+  },
+  {
+    path: 'redefinir-senha',
+    component: RedefinirSenhaComponent,
+    data: {
+      title: 'Redefinir-Senha'
     }
   }
 ];
