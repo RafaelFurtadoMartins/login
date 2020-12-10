@@ -12,13 +12,15 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ApiService } from 'src/service/api.service';
 import { AuthenticationService } from 'src/service/authentication.service';
 import Swal from 'sweetalert2/*/sweetalert2.js';
+import { RedefinirSenhaComponent } from './redefinir-senha/redefinir-senha.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CadastroComponent,
-    HomePageComponent
+    HomePageComponent,
+    RedefinirSenhaComponent
   ],
   imports: [
     BrowserModule,
