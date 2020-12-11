@@ -39,46 +39,40 @@ export class LoginComponent {
         }
         else
 
-        console.log(
-          Swal.fire({
-            title: 'Are you sure?',
-            text: 'You will not be able to recover this imaginary file!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'OK!',
-            cancelButtonText: 'No, keep it'
-          })
-        );
+          console.log(
+            Swal.fire({
+              title: 'Are you sure?',
+              text: 'You will not be able to recover this imaginary file!',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'OK!',
+              cancelButtonText: 'No, keep it'
+            })
+          );
         console.log('Retorno da API:', this.loginData);
-       },
-
-        // error => {
-        //   console.log('Erros: ', Swal.fire)
-        //   var errorMsg = '';
-        //   error.error.errors.forEach(msg => {
-        //     errorMsg += msg.value + '<br>';
-        //   });
-        //   console.log(Swal.fire);
-        
-
+      },
 
       );
   }
-simpleAlert() {
-  Swal.fire({
-    title: 'Are you sure?',
-    text: 'You will not be able to recover this imaginary file!',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: 'OK!',
-    cancelButtonText: 'No, keep it'
-  })
+  simpleAlert() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this imaginary file!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+  }
+  reenviar(){
+    return this.apiService.reenviarEmail({
+      email: this.email})
+      .subscribe(data => {
+
+        if (data.success == true) {
+          this.authService = data;
+  }
+ 
+      );
 }
-
-// redefinirBTN(){
-//   this.router.navigate(['redefinir-senha']);
-// }
-      
-}
-
-
+  }
