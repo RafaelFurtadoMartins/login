@@ -37,37 +37,47 @@ export class LoginComponent {
           this.authService.login(response.data);
           this.router.navigate(["home-page"]);
         }
+        else
 
-
+        console.log(
+          Swal.fire({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this imaginary file!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'OK!',
+            cancelButtonText: 'No, keep it'
+          })
+        );
         console.log('Retorno da API:', this.loginData);
-
        },
-        error => {
-          console.log('Erros: ', error)
-          var errorMsg = '';
-          error.error.errors.forEach(msg => {
-            errorMsg += msg.value + '<br>';
-          });
-          console.log(errorMsg);
-        }
+
+        // error => {
+        //   console.log('Erros: ', Swal.fire)
+        //   var errorMsg = '';
+        //   error.error.errors.forEach(msg => {
+        //     errorMsg += msg.value + '<br>';
+        //   });
+        //   console.log(Swal.fire);
+        
 
 
       );
   }
-  simpleAlert() {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'You will not be able to recover this imaginary file!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'OK!',
-      cancelButtonText: 'No, keep it'
-    })
-      }
-    
-      redefinirBTN(){
-        this.router.navigate(['redefinir-senha']);
-        }
+simpleAlert() {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'You will not be able to recover this imaginary file!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'OK!',
+    cancelButtonText: 'No, keep it'
+  })
+}
+
+// redefinirBTN(){
+//   this.router.navigate(['redefinir-senha']);
+// }
       
 }
 
