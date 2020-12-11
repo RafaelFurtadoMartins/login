@@ -65,7 +65,10 @@ export class LoginComponent {
     })
       }
     
-  
+      redefinirBTN(){
+        this.router.navigate(['redefinir-senha']);
+        }
+      
 }
 
 
