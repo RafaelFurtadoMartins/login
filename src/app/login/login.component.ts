@@ -64,15 +64,23 @@ export class LoginComponent {
       cancelButtonText: 'No, keep it'
     })
   }
-  reenviar(){
+  reenviar() {
     return this.apiService.reenviarEmail({
-      email: this.email})
-      .subscribe(data => {
+      email: this.email
+    })
+       .subscribe(data => {
 
         if (data.success == true) {
-          this.authService = data;
-  }
- 
+          
+
+        }
+      },
+        error => {
+
+          console.log('Erros: ', error);
+
+
+        }
       );
-}
   }
+};
