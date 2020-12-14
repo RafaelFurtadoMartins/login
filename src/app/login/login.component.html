@@ -6,17 +6,21 @@
 
             <p>
                 <label for="email">E-mail</label>
-                <input required type="email" id="email" name="email" placeholder="email" [(ngModel)]="email" type="text" required />
+                <input required type="email" id="email" name="email" placeholder="email" [(ngModel)]="email" type="text"
+                    required />
             </p>
             <p>
                 <label for="senha">Senha</label>
-                <input required type="password" id="password" name="password" placeholder="password" [(ngModel)]="senha" type="password" required />
-            <!-- </p>
+                <input required type="password" id="password" name="password" placeholder="password" [(ngModel)]="senha"
+                    type="password" required />
+                <!-- </p>
                 <button (click)="redefinirBTN()">Redefinir Senha </button>
             <p> -->
             </p>
-            <button (click)="reenviar()">Reeenviar E-mail </button>
-        <p>
+            <p>
+                <button (click)="reenviar()">Reeenviar E-mail </button>
+            </p>
+            <p>
                 <input type="submit" value="Login" (click)="login()" />
             </p>
 
@@ -27,4 +31,3 @@
             </p>
         </form>
     </div>
-
