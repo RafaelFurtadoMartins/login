@@ -19,6 +19,7 @@ export class LoginComponent {
   senha: string;
   errorLogin: any;
   loginData: any;
+
   constructor(private apiService: ApiService,
     public globalService: GlobalService,
     private router: Router,
@@ -71,7 +72,8 @@ export class LoginComponent {
        .subscribe(data => {
 
         if (data.success == true) {
-          
+          this.apiService.reenviarEmail(data);
+        
 
         }
       },
