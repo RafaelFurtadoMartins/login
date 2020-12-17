@@ -16,8 +16,8 @@ export class AuthenticationService {
   public get loggedIn(): boolean {
     return (localStorage.getItem('currentUser') !== null);
   }
-  cadastro(){
-    localStorage.setItem('currentUser', JSON.stringify(user));
-    return true; 
-  }
+  // cadastro(){
+  //   // // localStorage.setItem('currentUser', JSON.stringify(user));
+  //   // return true; 
+  // }
 }  
