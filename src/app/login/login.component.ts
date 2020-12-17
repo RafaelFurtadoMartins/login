@@ -66,11 +66,16 @@ export class LoginComponent {
     })
   }
   reenviar() {
-     this.apiService.reenviarEmail({
+    return this.apiService.reenviarEmail({
       email: this.email
     })
        .subscribe(data => {
 
+        if (data.success == true) {
+          this.apiService.reenviarEmail(data);
+        
+
+        }
       },
         error => {
 
