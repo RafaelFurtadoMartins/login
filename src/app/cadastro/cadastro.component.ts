@@ -64,7 +64,12 @@ export class CadastroComponent implements OnInit {
         if (data.success == true) {
           this.authService = data;
           this.router.navigate(["login"]);
-
+          Swal.fire({
+            title: 'AEE',
+            html: 'Cadastro Efetuado com sucesso!',
+            icon: 'success',
+            confirmButtonText: 'OK!',
+          })
         }
       },
         error => {
@@ -72,13 +77,9 @@ export class CadastroComponent implements OnInit {
           Swal.fire({
             title: 'OPS',
             html: 'Confira os Dados Digitados',
-            icon: 'warning',
-            // showCancelButton: true,
+            icon: 'error',
             confirmButtonText: 'OK!',
-            // cancelButtonText: 'No, keep it'
           })
-
-
 
         }
       );
