@@ -37,20 +37,27 @@ export class LoginComponent {
         if (response.success == true) {
           this.authService.login(response.data);
           this.router.navigate(["home-page"]);
+          Swal.fire({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this imaginary file!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'OK!',
+            cancelButtonText: 'No, keep it'
+          })
         }
         else
 
-          console.log(
-            Swal.fire({
-              title: 'Are you sure?',
-              text: 'You will not be able to recover this imaginary file!',
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonText: 'OK!',
-              cancelButtonText: 'No, keep it'
-            })
-          );
-        console.log('Retorno da API:', this.loginData);
+          Swal.fire({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this imaginary file!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'OK!',
+            cancelButtonText: 'No, keep it'
+          })
+
+        // console.log('Retorno da API:', this.loginData);
       },
 
       );
@@ -69,9 +76,9 @@ export class LoginComponent {
     return this.apiService.reenviarEmail({
       email: this.email
     })
-       .subscribe(data => {
+      .subscribe(data => {
 
-    
+
       },
         error => {
 
