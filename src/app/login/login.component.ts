@@ -71,11 +71,7 @@ export class LoginComponent {
     })
        .subscribe(data => {
 
-        if (data.success == true) {
-          this.apiService.reenviarEmail(data);
-        
-
-        }
+    
       },
         error => {
 
