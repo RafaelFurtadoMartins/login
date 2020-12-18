@@ -4,6 +4,7 @@ import { ApiService } from 'src/service/api.service';
 import { GlobalService } from 'src/service/global.service';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/service/authentication.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastro',
@@ -28,7 +29,7 @@ export class CadastroComponent implements OnInit {
     public authService: AuthenticationService,
     public router: Router,
 
-    ) { }
+  ) { }
 
   ngOnInit() { }
   validation() {
@@ -68,8 +69,14 @@ export class CadastroComponent implements OnInit {
       },
         error => {
 
-          console.log('Erros: ', error);
-
+          Swal.fire({
+            title: 'OPS',
+            html: 'Confira os Dados Digitados',
+            icon: 'warning',
+            // showCancelButton: true,
+            confirmButtonText: 'OK!',
+            // cancelButtonText: 'No, keep it'
+          })
 
 
 
