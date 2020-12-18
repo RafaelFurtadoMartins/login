@@ -38,18 +38,16 @@ export class LoginComponent {
           this.authService.login(response.data);
           this.router.navigate(["home-page"]);
         }
-    
+
       },
-      error =>{
-        Swal.fire({
-          title: 'OPS',
-          html: 'Confira os Dados Digitados',
-          icon: 'warning',
-          // showCancelButton: true,
-          confirmButtonText: 'OK!',
-          // cancelButtonText: 'No, keep it'
-        })
-      }
+        error => {
+          Swal.fire({
+            title: 'OPS',
+            html: 'Confira os Dados Digitados',
+            icon: 'warning',
+            confirmButtonText: 'OK!',
+          })
+        }
 
       );
   }
@@ -66,14 +64,24 @@ export class LoginComponent {
   reenviar() {
     return this.apiService.reenviarEmail({
       email: this.email
+
     })
       .subscribe(data => {
+        if (data.sucess == true) {
+
+          this.apiService.reenviarEmail(data);
+        }
 
 
       },
         error => {
+          Swal.fire({
+            title: 'OPS',
+            html: 'Confira os Dados Digitados',
+            icon: 'error',
+            confirmButtonText: 'OK!',
+          })
 
-          console.log('Erros: ', error);
 
 
         }
