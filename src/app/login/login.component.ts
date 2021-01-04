@@ -42,8 +42,8 @@ export class LoginComponent {
       },
         error => {
           Swal.fire({
-            title: 'OPS',
-            html: 'Confira os Dados Digitados',
+            title: 'Erro de login',
+            html: 'Confira os Dados Digitados, ou entre em contato com o suporte!',
             icon: 'warning',
             confirmButtonText: 'OK!',
           })
